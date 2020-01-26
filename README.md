@@ -30,32 +30,17 @@ which means that those items are curated in this list. These interactions are st
 Note that the last item is regarded as test data, the item before the last item is regarded as validation data and the rest of items are treated as training data.
 
 #### (2) The containing relationship between lists and items.
-The format of train.txt, validation.txt and test.txt are like this:
+``key: listId, value: userId``
 
-``userId listId 1.0``
-
-And items contained in that list.
-
-``listId [itemId_1, itemId_2, itemId_3,...]``
-
-which means that the list contains these items. These containing relationships are storded in listItem_\*.txt, like AttList/AttList_cikm2019/data/goodreads/listItem_goodreads.txt
+which means that the list is created by this user. These creating relationships are storded in \data folder, like AotM_creator_list.dict (python dictionary object).
 
 #### Output
-The output are the evaluation results comparing the ranked lists of AttList and the groundtruth from the test.txt. An example is presented as follows:
-
-```
-precision@5: 0.0297358342335
-recall@5: 0.0993438722178
-precision@10: 0.0212903859373
-recall@10: 0.139846678794
-NDCG@5: 0.0738304666949
-NDCG@10: 0.088376425288
-```
+The output are the evaluation results comparing the ranked items for each list from CAR and the groundtruth (e.g., the last item of AotM.txt). For each test item, we sample 100 negative items. CAR predicts scores for the 100 negative items and 1 test ite, and rank these 101 items based on their scores. The 100 negative items for each list are stored in \data folder, like AotMListItems_len5_item5_cut1000.negativeEvalTest.zip (unzip this file when you run our code).
 
 #### Run
-python Attlist_cikm2019.py --dataSetName Spotify
+python main.py --dataset Zhihu --train_dir test
 
-For more hyper-parameters, please see Attlist_cikm2019.py.
+For more hyper-parameters, please see main.py.
 
 ### Files in folder
 
