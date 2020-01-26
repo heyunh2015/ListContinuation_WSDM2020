@@ -12,22 +12,24 @@ This is the implementation of the paper as well as datasets and their splitting 
 
 User-generated item lists are popular on many platforms. Examples include song-based playlists on Spotify, image-based lists (or“boards”) on Pinterest, book-based lists on Goodreads, and answer-based lists on question-answer forums like Zhihu.
 In these platforms, user-generated item lists are manually created, curated, and managed by users. 
-Typically, users must first identify candidate items, determine if they are a good fit for a list,add them to a list, and then potentially provide ongoing updates
+Typically, users must first identify candidate items, determine if they are a good fit for a list, add them to a list, and then potentially provide ongoing updates
 to the list (e.g., by adding or deleting items over time). To accelerate this process and assist users to explore more related itemsfor their lists, 
-we study the important yet challenging problem of user-generated item list continuation. That is, how can we recommend items (next item prediction) that are related to the list and fit the user’s preferences?
+we study the important yet challenging problem of user-generated item list continuation. That is, how can we recommend items that are related to the list and fit the user’s preferences?
 
 ### Usage 
-AttList learns the user preference from training datasets and then ranks the lists for the users in testing datasets. Folder AttList_cikm2019 contains our code and preprocessed datasets with split used in our paper. Folder attList_CIKM2019_data contains raw datasets without preprocessed (which have been de-identified. No real user id, list id and item id are released, no worries!). 
+We propose a novel model CAR to predict the next item that a user will possibly add into a list.
 
 #### Input
-The input of AttList includes the set of interactions between users and lists:
+The input of CAR includes: (1) the containing relationship between lists and items; (2) the creating relationship between users and lists.
 
-``userId [listId_1, listId_2, listId_3,...]``
+#### (1) The containing relationship between lists and items.
+``listId itemId``
 
-which means that the user interacted with the lists (e.g., playlists on Spoftify). These interactions are stored in userList_\*.txt file, like AttList/AttList_cikm2019/data/goodreads/userList_goodreads.txt. 
+which means that those items are curated in this list. These interactions are stored in \data folder, like AotM.txt.zip (unzip this file when you run our code). 
 
-Note that we split userList_\*.txt into train.txt, validation.txt and test.txt and only use train.txt in the training phase, otherwise the information will be leaked. Of course, validation.txt is for hyper-parameters selection and test.txt is for the evaluation.
+Note that the last item is regarded as test data, the item before the last item is regarded as validation data and the rest of items are treated as training data.
 
+#### (2) The containing relationship between lists and items.
 The format of train.txt, validation.txt and test.txt are like this:
 
 ``userId listId 1.0``
