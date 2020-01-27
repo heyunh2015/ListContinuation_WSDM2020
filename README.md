@@ -42,5 +42,11 @@ python main.py --dataset Zhihu --train_dir test
 
 For more hyper-parameters, please see main.py.
 
+### Datasets
+Except to a public dataset AOTM-2011 (https://bmcfee.github.io/data/aotm2011.html), we also self-collected three datasets (in data folder): playlists from Spotify, book lists from Goodreads and answer collections from Zhihu, providing a wide range of varying item types for evaluating related methods like automatic playlists continuation. You are welcome to use our datasets and cite our paper.
+
 ### Citation
 TBD
+
+### Acknowledgement
+The technique of self-attention in this paper is learned from https://github.com/kang205/SASRec. Th first author is Wang-Cheng Kang. Thanks to them! And my labmate Jiangling Wang (http://people.tamu.edu/~jwang713/) helps me to construct the playlist dataset from Spotify, thanks!
