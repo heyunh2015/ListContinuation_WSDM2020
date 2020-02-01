@@ -16,7 +16,7 @@ Typically, users must first identify candidate items, determine if they are a go
 to the list (e.g., by adding or deleting items over time). To accelerate this process and assist users to explore more related items for their lists, 
 we study the important yet challenging problem of user-generated item list continuation. That is, how can we recommend items that are related to the list and fit the user’s preferences?
 
-We also have another very related work in CIKM 2019:
+We also have another very related work in CIKM 2019, which recommends user-generated item lists to right users:
 > A Hierarchical Self-Attentive Model for Recommending User-Generated Item Lists.<br>
 > CIKM, 2019.<br>
 > Yun He, Jianling Wang, Wei Niu and James Caverlee.<br>
@@ -25,7 +25,7 @@ We also have another very related work in CIKM 2019:
 
 
 
-### Usage 
+### Usage of CAR (WSDM 2020)
 We propose a novel model CAR to predict the next item that a user will possibly add into a list.
 
 #### Input
